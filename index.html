@@ -3,67 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiosy Labs – Solusi Automasi Operasional UMKM</title>
+    <title>kiosy.my.id - Otomatisasi & AI WhatsApp untuk Bisnis</title>
+    <meta name="description" content="Ubah WhatsApp Web biasa menjadi mesin closing otomatis. Balas otomatis, kirim pesan massal, dan gunakan AI untuk melayani pelanggan 24/7 tanpa biaya API mahal.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
-        header { background: #2c3e50; color: #fff; padding: 2rem; text-align: center; }
-        section { padding: 2rem; max-width: 900px; margin: auto; background: #fff; margin-bottom: 1rem; border-radius: 8px; }
-        h1, h2 { color: #2c3e50; }
-        .hero { font-size: 1.2rem; font-style: italic; text-align: center; color: #555; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-        .card { border: 1px solid #ddd; padding: 1.5rem; border-radius: 5px; }
+        /* CSS Variables */
+        :root {
+            --bg-color: #0f1115;
+            --surface-color: #181b21;
+            --primary: #a3e635; /* Hijau Neon */
+            --primary-hover: #84cc16;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #2a2e37;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(163, 230, 53, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Navbar */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            background-color: rgba(15, 17, 21, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            background-color: var(--primary);
+            color: #000;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(163, 230, 53, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(163, 230, 53, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        /* Mockup UI (Kanan) */
+        .hero-mockup {
+            flex: 1;
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #10b981; }
+
+        .mockup-item {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .mockup-icon {
+            background: rgba(163, 230, 53, 0.1);
+            color: var(--primary);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .mockup-text h4 { font-size: 16px; margin-bottom: 4px;}
+        .mockup-text p { font-size: 12px; color: var(--text-muted);}
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--surface-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-color);
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-mockup { width: 100%; }
+            .nav-links { display: none; /* Sembunyikan menu di HP untuk simplisitas */ }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Kiosy Labs</h1>
-    <p>Solusi Automasi Operasional UMKM & Perusahaan</p>
-</header>
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                kiosy<span>.my.id</span>
+            </div>
+            <div class="nav-links">
+                <a href="#fitur" style="margin-right: 24px; font-weight: 500;">Fitur</a>
+                <a href="#harga" style="margin-right: 24px; font-weight: 500;">Harga</a>
+                <a href="#faq" style="margin-right: 24px; font-weight: 500;">FAQ</a>
+            </div>
+            <a href="#" class="btn btn-primary">Mulai Gratis</a>
+        </div>
+    </nav>
 
-<section>
-    <p class="hero">"Kami bukan cuma memasang aplikasi. Kami membangun sistem yang mengurangi beban operasional Anda sebesar 40% dan memberikan akurasi data 100%, sehingga tim Anda bisa fokus pada strategi, bukan pada administrasi."</p>
-</section>
+    <!-- Hero Section -->
+    <header class="container hero">
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-fire"></i> 100% Tanpa Biaya API WhatsApp</span>
+            <h1>Ubah WhatsApp Web Biasa Menjadi <span>Mesin Closing Otomatis.</span></h1>
+            <p>Kewalahan balas chat? Serahkan pada AI dan otomatisasi cerdas dari kiosy.my.id. Balas pelanggan 24/7, kirim pesan massal, dan tingkatkan omzet tanpa perlu menambah tim CS.</p>
+            
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Coba Gratis Sekarang</a>
+                <a href="#" class="btn btn-outline"><i class="fa-solid fa-play"></i> Lihat Demo</a>
+            </div>
+            <p style="font-size: 14px; color: var(--text-muted);"><i class="fa-solid fa-check-circle" style="color: var(--primary);"></i> Setup hanya butuh 60 detik. Tanpa kartu kredit.</p>
+        </div>
 
-<section>
-    <h2>1. Masalah Utama (The Pain Point)</h2>
-    <ul>
-        <li><strong>Kehilangan Penjualan:</strong> <i>Slow response</i> di WhatsApp membuat calon pembeli beralih ke kompetitor.</li>
-        <li><strong>Human Error:</strong> Rekap order manual di buku/kertas sering hilang, salah catat, atau terlewat.</li>
-        <li><strong>Beban Administratif:</strong> Pemilik bisnis habis waktu hanya untuk balas chat rutin dan rekap data.</li>
-    </ul>
-</section>
+        <!-- Mockup UI Kanan -->
+        <div class="hero-mockup">
+            <div class="mockup-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            
+            <div class="mockup-item">
+                <div class="mockup-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="mockup-text">
+                    <h4>AI Copilot</h4>
+                    <p>Merangkum chat panjang & menulis balasan profesional secara otomatis.</p>
+                </div>
+            </div>
+            
+            <div class="mockup-item">
+                <div class="mockup-icon"><i class="fa-solid fa-reply-all"></i></div>
+                <div class="mockup-text">
+                    <h4>Auto Reply 24/7</h4>
+                    <p>Menjawab pertanyaan pelanggan berdasarkan data bisnis Anda.</p>
+                </div>
+            </div>
 
-<section>
-    <h2>2. Solusi Kami (The Solution)</h2>
-    <ul>
-        <li><strong>WA Auto-Response:</strong> Membalas chat klien secara instan dan ramah.</li>
-        <li><strong>Auto-Rekap Order:</strong> Pesanan otomatis pindah ke database (Google Sheets).</li>
-        <li><strong>Sistem Notifikasi:</strong> Anti-missed order ke berbagai platform.</li>
-        <li><strong>Laporan Otomatis:</strong> Perhitungan stok dan keuangan sistematis setiap bulan.</li>
-    </ul>
-</section>
+            <div class="mockup-item">
+                <div class="mockup-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <div class="mockup-text">
+                    <h4>Bulk Blast</h4>
+                    <p>Kirim pesan promo massal personal hanya dengan 1 klik.</p>
+                </div>
+            </div>
+            
+            <div class="mockup-item">
+                <div class="mockup-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <div class="mockup-text">
+                    <h4>Privacy Shield</h4>
+                    <p>Sembunyikan status online & centang biru saat memantau chat.</p>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<section>
-    <h2>3. Keunggulan Kami (The Competitive Advantage)</h2>
-    <ul>
-        <li><strong>Berbasis Praktisi:</strong> Pengalaman 15 tahun di industri percetakan, undangan dan souvenir.</li>
-        <li><strong>Efisiensi Tinggi:</strong> Teknologi AI modern yang hemat biaya dan stabil.</li>
-        <li><strong>Sistem Teruji:</strong> Solusi yang kami pakai sendiri untuk operasional bisnis kami.</li>
-    </ul>
-</section>
+    <!-- Features Section -->
+    <section id="fitur" class="features">
+        <div class="container">
+            <h2 class="section-title">Solusi Cerdas untuk Tim Anda</h2>
+            <p class="section-subtitle">Tinggalkan cara manual. Otomatiskan pekerjaan berulang dan fokus pada closing.</p>
+            
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>AI Chat & Translate</h3>
+                    <p>Biarkan AI menjawab pelanggan secara instan. Punya pelanggan asing? AI akan menerjemahkan chat langsung di ruang obrolan.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3>Multi-Operator</h3>
+                    <p>Satu nomor WhatsApp bisa digunakan oleh beberapa anggota tim secara bersamaan tanpa saling tendang (logout).</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Setup 60 Detik</h3>
+                    <p>Instal ekstensi Chrome, hubungkan akun, dan biarkan sistem bekerja. Tanpa gateway pihak ketiga yang rumit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>4. Solusi Enterprise (Layanan Perusahaan Besar)</h2>
-    <div class="grid">
-        <div class="card"><h3>1. Early Warning System</h3><p>Predictive analytics untuk restock otomatis sebelum out-of-stock.</p></div>
-        <div class="card"><h3>2. Rekonsiliasi Bank</h3><p>Pencocokan mutasi bank otomatis dengan invoice internal.</p></div>
-        <div class="card"><h3>3. Document Intelligence</h3><p>OCR otomatis untuk ekstraksi data faktur dan surat jalan ke ERP.</p></div>
-        <div class="card"><h3>4. Internal Knowledge AI</h3><p>SOP perusahaan dalam bentuk database cerdas yang bisa diajak chat.</p></div>
-        <div class="card"><h3>5. Dynamic Dashboarding</h3><p>Dashboard real-time untuk keputusan manajemen berbasis data.</p></div>
-    </div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 kiosy.my.id. Hak cipta dilindungi undang-undang.</p>
+            <p style="margin-top: 8px; font-size: 14px;">Dibuat untuk pebisnis yang ingin bergerak lebih cepat.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
