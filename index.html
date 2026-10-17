@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kiosy.my.id - Otomatisasi & AI WhatsApp untuk Bisnis</title>
-    <meta name="description" content="Ubah WhatsApp Web biasa menjadi mesin closing otomatis. Balas otomatis, kirim pesan massal, dan gunakan AI untuk melayani pelanggan 24/7 tanpa biaya API mahal.">
+    <title>kiosy.my.id - Ubah WhatsApp Web Menjadi Mesin Closing Otomatis</title>
+    <meta name="description" content="Kewalahan balas chat? Serahkan pada AI dan Otomatisasi cerdas dari kiosy.my.id. Balas otomatis, kirim pesan massal, dan gunakan AI untuk melayani pelanggan 24/7.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --border: #2a2e37;
+            --danger: #ef4444;
         }
 
         /* Reset & Base Styles */
@@ -49,15 +50,18 @@
             padding: 0 20px;
         }
 
+        .section-padding { padding: 80px 0; }
+
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 14px 32px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
+            font-size: 16px;
         }
 
         .btn-primary {
@@ -124,25 +128,11 @@
             padding: 80px 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 40px;
         }
 
         .hero-content {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: rgba(163, 230, 53, 0.1);
-            color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid rgba(163, 230, 53, 0.2);
+            flex: 1.2;
         }
 
         .hero h1 {
@@ -152,12 +142,10 @@
             margin-bottom: 24px;
         }
 
-        .hero h1 span {
-            color: var(--primary);
-        }
+        .hero h1 span { color: var(--primary); }
 
-        .hero p {
-            font-size: 1.1rem;
+        .hero p.lead {
+            font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 32px;
         }
@@ -168,23 +156,17 @@
             margin-bottom: 24px;
         }
 
-        /* Mockup UI (Kanan) */
+        /* Mockup UI Kanan */
         .hero-mockup {
             flex: 1;
             background: var(--surface-color);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 20px;
+            padding: 24px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            position: relative;
         }
 
-        .mockup-header {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
+        .mockup-header { display: flex; gap: 8px; margin-bottom: 20px; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
         .dot.red { background: #ef4444; }
         .dot.yellow { background: #f59e0b; }
@@ -206,27 +188,28 @@
             color: var(--primary);
             padding: 12px;
             border-radius: 8px;
+            font-size: 20px;
         }
 
         .mockup-text h4 { font-size: 16px; margin-bottom: 4px;}
-        .mockup-text p { font-size: 12px; color: var(--text-muted);}
+        .mockup-text p { font-size: 13px; color: var(--text-muted);}
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: var(--surface-color);
-        }
-
+        /* Sections Global */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 16px;
+            font-weight: 800;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
             margin-bottom: 60px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .grid {
@@ -235,33 +218,80 @@
             gap: 24px;
         }
 
-        .card {
+        /* Problem Section */
+        .problem-section { background-color: var(--surface-color); }
+        .problem-card {
             background: var(--bg-color);
             padding: 32px;
             border-radius: 12px;
             border: 1px solid var(--border);
-            transition: border-color 0.3s ease;
+            border-top: 4px solid var(--danger);
         }
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .problem-card h3 i { color: var(--danger); }
+        .problem-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .card:hover {
+        /* Solution/Feature Section */
+        .feature-card {
+            background: var(--surface-color);
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .feature-card:hover {
             border-color: var(--primary);
+            transform: translateY(-5px);
         }
-
-        .card-icon {
-            font-size: 24px;
+        .feature-icon {
+            font-size: 28px;
             color: var(--primary);
             margin-bottom: 20px;
         }
-
-        .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--text-muted);
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; }
+        
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li {
+            margin-bottom: 10px;
             font-size: 0.95rem;
+            display: flex;
+            gap: 10px;
         }
+        .feature-list li i { color: var(--primary); margin-top: 5px; }
+
+        /* Why Choose Us */
+        .why-us-section { background-color: var(--surface-color); }
+        .why-item {
+            display: flex;
+            gap: 20px;
+            background: var(--bg-color);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .why-icon {
+            color: var(--primary);
+            font-size: 24px;
+        }
+        .why-item h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .why-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--bg-color) 0%, rgba(163, 230, 53, 0.05) 100%);
+            border-top: 1px solid var(--border);
+        }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta-section p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
         /* Footer */
         footer {
@@ -270,18 +300,30 @@
             text-align: center;
             color: var(--text-muted);
         }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-info a { display: flex; align-items: center; gap: 8px; font-weight: 600;}
+        .contact-info a:hover { color: var(--primary); }
+        .quote {
+            font-style: italic;
+            color: var(--primary);
+            margin-top: 20px;
+            font-weight: 600;
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 0;
-            }
+            .hero { flex-direction: column; text-align: center; }
             .hero h1 { font-size: 2.5rem; }
             .hero-buttons { justify-content: center; }
             .hero-mockup { width: 100%; }
-            .nav-links { display: none; /* Sembunyikan menu di HP untuk simplisitas */ }
+            .nav-links { display: none; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -294,30 +336,24 @@
                 <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
                 kiosy<span>.my.id</span>
             </div>
-            <div class="nav-links">
-                <a href="#fitur" style="margin-right: 24px; font-weight: 500;">Fitur</a>
-                <a href="#harga" style="margin-right: 24px; font-weight: 500;">Harga</a>
-                <a href="#faq" style="margin-right: 24px; font-weight: 500;">FAQ</a>
-            </div>
-            <a href="#" class="btn btn-primary">Mulai Gratis</a>
+            <a href="#daftar" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Mulai Gratis</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="container hero">
         <div class="hero-content">
-            <span class="badge"><i class="fa-solid fa-fire"></i> 100% Tanpa Biaya API WhatsApp</span>
-            <h1>Ubah WhatsApp Web Biasa Menjadi <span>Mesin Closing Otomatis.</span></h1>
-            <p>Kewalahan balas chat? Serahkan pada AI dan otomatisasi cerdas dari kiosy.my.id. Balas pelanggan 24/7, kirim pesan massal, dan tingkatkan omzet tanpa perlu menambah tim CS.</p>
+            <h1>🚀 Ubah WhatsApp Web Biasa Menjadi <span>Mesin Closing Otomatis!</span></h1>
+            <p class="lead">Kewalahan Balas Chat? Serahkan pada AI dan Otomatisasi cerdas dari <strong>kiosy.my.id</strong>.</p>
+            <p style="color: var(--text-muted); margin-bottom: 32px;">Kiosy.my.id adalah ekstensi Chrome revolusioner yang menyulap WhatsApp Web Anda menjadi asisten bisnis super cerdas. Balas otomatis, kirim pesan massal, dan gunakan AI untuk melayani pelanggan 24/7 — tanpa biaya API bulanan yang mahal!</p>
             
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Coba Gratis Sekarang</a>
-                <a href="#" class="btn btn-outline"><i class="fa-solid fa-play"></i> Lihat Demo</a>
+            <div class="hero-buttons" id="daftar">
+                <a href="https://wa.me/62812XXXXXXXX" target="_blank" class="btn btn-primary">Coba Gratis (Free Trial)</a>
+                <a href="#fitur" class="btn btn-outline">Lihat Fitur</a>
             </div>
-            <p style="font-size: 14px; color: var(--text-muted);"><i class="fa-solid fa-check-circle" style="color: var(--primary);"></i> Setup hanya butuh 60 detik. Tanpa kartu kredit.</p>
         </div>
 
-        <!-- Mockup UI Kanan -->
+        <!-- Mockup UI -->
         <div class="hero-mockup">
             <div class="mockup-header">
                 <div class="dot red"></div>
@@ -329,7 +365,7 @@
                 <div class="mockup-icon"><i class="fa-solid fa-robot"></i></div>
                 <div class="mockup-text">
                     <h4>AI Copilot</h4>
-                    <p>Merangkum chat panjang & menulis balasan profesional secara otomatis.</p>
+                    <p>Merangkum chat panjang & menulis balasan profesional.</p>
                 </div>
             </div>
             
@@ -337,7 +373,7 @@
                 <div class="mockup-icon"><i class="fa-solid fa-reply-all"></i></div>
                 <div class="mockup-text">
                     <h4>Auto Reply 24/7</h4>
-                    <p>Menjawab pertanyaan pelanggan berdasarkan data bisnis Anda.</p>
+                    <p>Menjawab pertanyaan pelanggan secara instan.</p>
                 </div>
             </div>
 
@@ -345,7 +381,7 @@
                 <div class="mockup-icon"><i class="fa-solid fa-bullhorn"></i></div>
                 <div class="mockup-text">
                     <h4>Bulk Blast</h4>
-                    <p>Kirim pesan promo massal personal hanya dengan 1 klik.</p>
+                    <p>Kirim pesan promo massal personal hanya 1 klik.</p>
                 </div>
             </div>
             
@@ -353,46 +389,145 @@
                 <div class="mockup-icon"><i class="fa-solid fa-user-shield"></i></div>
                 <div class="mockup-text">
                     <h4>Privacy Shield</h4>
-                    <p>Sembunyikan status online & centang biru saat memantau chat.</p>
+                    <p>Sembunyikan status online & centang biru.</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Features Section -->
-    <section id="fitur" class="features">
+    <!-- Problem Section -->
+    <section class="section-padding problem-section">
         <div class="container">
-            <h2 class="section-title">Solusi Cerdas untuk Tim Anda</h2>
-            <p class="section-subtitle">Tinggalkan cara manual. Otomatiskan pekerjaan berulang dan fokus pada closing.</p>
+            <h2 class="section-title">❌ Masalah yang Sering Dihadapi Pebisnis</h2>
+            <p class="section-subtitle">Apakah Anda mengalami salah satu dari hal ini?</p>
+            
+            <div class="grid">
+                <div class="problem-card">
+                    <h3><i class="fa-solid fa-xmark"></i> Kewalahan Chat</h3>
+                    <p>Ratusan pesan masuk setiap hari membuat tim CS kewalahan dan proses closing jadi sangat lambat.</p>
+                </div>
+                <div class="problem-card">
+                    <h3><i class="fa-solid fa-xmark"></i> Balas Manual Terus-menerus</h3>
+                    <p>Waktu berharga habis hanya untuk menjawab pertanyaan yang itu-itu saja (jam buka, harga, ketersediaan stok).</p>
+                </div>
+                <div class="problem-card">
+                    <h3><i class="fa-solid fa-xmark"></i> Mahalnya API Resmi</h3>
+                    <p>Ingin pakai bot, tapi terkendala biaya langganan API WhatsApp Business (WABA) yang sangat menguras kantong.</p>
+                </div>
+                <div class="problem-card">
+                    <h3><i class="fa-solid fa-xmark"></i> Sulit Broadcast</h3>
+                    <p>Mengirim promo ke banyak pelanggan secara manual sangat melelahkan dan rawan salah kirim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section-padding" id="fitur">
+        <div class="container">
+            <h2 class="section-title">✅ Solusi Cerdas dari kiosy.my.id</h2>
+            <p class="section-subtitle">Kami menghadirkan teknologi <em>WhatsApp Bridge</em> (via Ekstensi Chrome) yang langsung terhubung ke WhatsApp Web Anda. Cukup instal dalam 60 detik, dan nikmati fitur premium ini:</p>
             
             <div class="grid">
                 <!-- Card 1 -->
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
-                    <h3>AI Chat & Translate</h3>
-                    <p>Biarkan AI menjawab pelanggan secara instan. Punya pelanggan asing? AI akan menerjemahkan chat langsung di ruang obrolan.</p>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>1. AI Copilot & Auto-Reply</h3>
+                    <p>Asisten Pintar 24/7 untuk melayani pelanggan tanpa henti.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>AI Chat:</strong> Menjawab pertanyaan pelanggan instan berdasarkan knowledge base.</div></li>
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Summarize & Rewrite:</strong> Meringkas obrolan panjang agar lebih profesional.</div></li>
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Auto Reply:</strong> Balas pesan otomatis di luar jam kerja.</div></li>
+                    </ul>
                 </div>
+                
                 <!-- Card 2 -->
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
-                    <h3>Multi-Operator</h3>
-                    <p>Satu nomor WhatsApp bisa digunakan oleh beberapa anggota tim secara bersamaan tanpa saling tendang (logout).</p>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>2. Efisiensi Marketing & CS</h3>
+                    <p>Kelola tim dan kirim promosi dengan jauh lebih cepat.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Bulk Blast:</strong> Kirim promo massal personal (sebut nama pelanggan) dengan 1 klik.</div></li>
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Panel Operator:</strong> 1 nomor WhatsApp dikelola banyak anggota tim tanpa saling tendang.</div></li>
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Manual Sender:</strong> Kirim teks/media ke banyak nomor sekaligus dengan cepat.</div></li>
+                    </ul>
                 </div>
+
                 <!-- Card 3 -->
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3>Setup 60 Detik</h3>
-                    <p>Instal ekstensi Chrome, hubungkan akun, dan biarkan sistem bekerja. Tanpa gateway pihak ketiga yang rumit.</p>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>3. Fitur Pendukung Ekstra</h3>
+                    <p>Privasi dan kenyamanan ekstra dalam berkomunikasi.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Translator Otomatis:</strong> Terjemahkan chat pelanggan asing langsung di ruang obrolan.</div></li>
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Privacy Shield:</strong> Sembunyikan status online, centang biru, & status "sedang mengetik".</div></li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="section-padding why-us-section">
+        <div class="container">
+            <h2 class="section-title">🏆 Mengapa Memilih kiosy.my.id?</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 40px;">
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <div>
+                        <h4>Hemat Biaya Ekstrem</h4>
+                        <p>Tidak perlu membayar biaya API resmi WhatsApp. Cukup gunakan sesi WhatsApp Web Anda sendiri.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <div>
+                        <h4>Setup Sangat Cepat</h4>
+                        <p>Hanya butuh waktu 60 detik untuk menghubungkan dan mengaktifkan semua fitur.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-lock"></i></div>
+                    <div>
+                        <h4>Aman & Terisolasi</h4>
+                        <p>Sistem berjalan langsung di browser Anda tanpa perantara gateway pihak ketiga yang mencurigakan.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div>
+                        <h4>Tingkatkan Omzet</h4>
+                        <p>Respon cepat berkat AI dan Auto-reply akan meningkatkan konversi penjualan secara signifikan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Offer Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>🎁 Siap Meng-upgrade WhatsApp Anda?</h2>
+            <p>Jadikan WhatsApp Anda sebagai mesin penjualan otomatis hari ini. Kunjungi kiosy.my.id dan rasakan bedanya!</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/62812XXXXXXXX" target="_blank" class="btn btn-primary" style="font-size: 18px; padding: 16px 40px;">Coba Gratis Sekarang</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 14px; color: var(--text-muted);">*Termasuk Panduan Instalasi Ekstensi (Cara Install) yang Sangat Mudah.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 kiosy.my.id. Hak cipta dilindungi undang-undang.</p>
-            <p style="margin-top: 8px; font-size: 14px;">Dibuat untuk pebisnis yang ingin bergerak lebih cepat.</p>
+            <div class="contact-info">
+                <a href="https://kiosy.my.id" target="_blank"><i class="fa-solid fa-globe"></i> kiosy.my.id</a>
+                <a href="https://wa.me/62812XXXXXXXX" target="_blank"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami</a>
+                <a href="mailto:hello@kiosy.my.id"><i class="fa-solid fa-envelope"></i> hello@kiosy.my.id</a>
+            </div>
+            
+            <p class="quote">"Biar kiosy.my.id dan AI yang balas chatnya, Anda fokus menikmati omzetnya."</p>
+            
+            <p style="margin-top: 30px; font-size: 14px; opacity: 0.7;">&copy; 2026 kiosy.my.id. Hak cipta dilindungi undang-undang.</p>
         </div>
     </footer>
 
